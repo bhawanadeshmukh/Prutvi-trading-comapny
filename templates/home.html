@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruthvi Trading Company</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff5722;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .container {
+            padding: 50px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .button {
+            background-color: #ff5722;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            font-size: 20px;
+        }
+        .button:hover {
+            background-color: #ff784e;
+        }
+        .sub-buttons {
+            display: none;
+        }
+        .sub-buttons.active {
+            display: flex;
+            justify-content: center;
+        }
+        .sub-buttons .button {
+            font-size: 18px;
+            padding: 12px 25px;
+            margin: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Pruthvi Trading Company</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="showSection('home')" class="button">Home</a>
+        <a href="#contact" onclick="showSection('contact')" class="button">Contact</a>
+    </nav>
+    <div id="home" class="container">
+        <div class="buttons">
+            <button class="button" onclick="toggleSubButtons('paint')">Paint</button>
+            <button class="button">Electric Scooty</button>
+        </div>
+        <div id="paint" class="sub-buttons">
+            <button class="button">Brushes</button>
+            <button class="button">Equipments</button>
+            <button class="button">Paint</button>
+        </div>
+    </div>
+    <div id="contact" class="container" style="display: none;">
+        <h2>Contact Us</h2>
+        <p>Email: pruthvitrading@gmail.com</p>
+        <p>Phone: 9175370003</p>
+    </div>
+    <footer>
+        &copy; 2024 Pruthvi Trading Company
+    </footer>
+
+    <script>
+        function toggleSubButtons(sectionId) {
+            var subButtons = document.getElementById(sectionId);
+            if (subButtons.classList.contains('active')) {
+                subButtons.classList.remove('active');
+            } else {
+                subButtons.classList.add('active');
+            }
+        }
+
+        function showSection(sectionId) {
+            var homeSection = document.getElementById('home');
+            var contactSection = document.getElementById('contact');
+            if (sectionId === 'home') {
+                homeSection.style.display = 'block';
+                contactSection.style.display = 'none';
+            } else if (sectionId === 'contact') {
+                homeSection.style.display = 'none';
+                contactSection.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
